@@ -28,12 +28,25 @@ class App extends  React.Component{
 
     // React sys we have to define render!!!!!
   render(){
-      return (
-          <div>
-          Latitude:{this.state.latitude}<br/>
-          Error:{this.state.errorMessage}
-          </div>
-      );
+       if(this.state.errorMessage && !this.state.latitude){
+           return (
+               <div>
+                   Error:{this.state.errorMessage}
+               </div>
+           );
+       }
+
+       if(!this.state.errorMessage && this.state.latitude){
+           return (
+               <div>
+                   Latitude:{this.state.latitude}
+               </div>
+           );
+       }
+
+       return (
+           <div>Loading !</div>
+       );
   }
 }
 
