@@ -26,6 +26,10 @@ class App extends  React.Component{
          );
     }
 
+    componentDidMount = ()=> console.log('My component was rendered on screen');
+    componentDidUpdate = ()=> console.log('My component was updated on the screen - it rerendred!');
+    
+
     // React sys we have to define render!!!!!
   render(){
        if(this.state.errorMessage && !this.state.latitude){
