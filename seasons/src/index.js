@@ -4,14 +4,8 @@ import ReactDOM from 'react-dom';
 // Class-based Component
 class App extends  React.Component{
 
-     constructor(props) {
-        super(props);
-        console.log(props);
-     
-        // This is the only time we do direct assignment to this.state
-        this.state = {latitude:null, errorMessage:''};
-    }
-  
+    // A simpler state initialisation i.e without construtor
+        state = { latitude: null, errorMessage: '' };
 
     // Tasks to do when the componen is rendered first time - Recommended
     componentDidMount() {
