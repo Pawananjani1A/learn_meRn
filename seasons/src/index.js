@@ -10,24 +10,16 @@ class App extends  React.Component{
      
         // This is the only time we do direct assignment to this.state
         this.state = {latitude:null, errorMessage:''};
-
-         window.navigator.geolocation.getCurrentPosition(
-             (position) => { 
-                 console.log(position);
-
-                //  We use the setState function to update the state!!!!!
-                 this.setState({latitude:position.coords.latitude});
-
-                 },
-             (err) => { 
-                 console.log(err);
-                 this.setState({errorMessage:err.message});
-             }
-         );
     }
+  
 
-    componentDidMount = ()=> console.log('My component was rendered on screen');
-    componentDidUpdate = ()=> console.log('My component was updated on the screen - it rerendred!');
+    // Tasks to do when the componen is rendered first time - Recommended
+    componentDidMount() {
+        window.navigator.geolocation.getCurrentPosition(
+            (position) => this.setState({ latitude: position.coords.latitude }),
+            (err) => this.setState({ errorMessage: err.message })     
+        );
+    }
     
 
     // React sys we have to define render!!!!!
