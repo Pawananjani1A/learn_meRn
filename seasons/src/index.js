@@ -16,30 +16,38 @@ class App extends  React.Component{
             (err) => this.setState({ errorMessage: err.message })     
         );
     }
+
+    renderContent(){
+        if (this.state.errorMessage && !this.state.latitude) {
+            return (
+                <div>
+                    Error:{this.state.errorMessage}
+                </div>
+            );
+        }
+
+        if (!this.state.errorMessage && this.state.latitude) {
+            return (
+                <SeasonDisplay
+                    latitude={this.state.latitude}
+                />
+            );
+        }
+
+        return (
+            <Spinner
+                message='Please accept location request'
+            />
+        );
+    }
     
 
     // React sys we have to define render!!!!!
   render(){
-       if(this.state.errorMessage && !this.state.latitude){
-           return (
-               <div>
-                   Error:{this.state.errorMessage}
-               </div>
-           );
-       }
-
-       if(!this.state.errorMessage && this.state.latitude){
-           return (
-              <SeasonDisplay
-                  latitude={this.state.latitude}
-              />
-           );
-       }
-
        return (
-           <Spinner
-               message='Please accept location request'
-           />
+           <div className="custom-style">
+               {this.renderContent()}
+           </div>
        );
   }
 }
