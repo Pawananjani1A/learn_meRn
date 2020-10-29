@@ -2,10 +2,11 @@ import React from 'react';
 
 class SearchBar extends React.Component{
 
-
-    onInputChange(action) {
-        // console.log(action.target.value);
-    }
+// onInputChange(e)
+// {
+//     console.log(e.target.value);
+// }
+    
 
     render() {
         return (
@@ -13,7 +14,7 @@ class SearchBar extends React.Component{
                 <form className="ui form">
                 <div className="field">
                     <label htmlFor="search-bar">Image Search</label>
-                    <input type="text" name="search-bar" onChange={this.onInputChange}/>
+                    <input type="text" name="search-bar" onChange={(e)=>console.log(e.target.value)}/>
                 </div>
                 </form>
             </div>
