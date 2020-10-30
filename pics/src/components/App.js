@@ -5,6 +5,7 @@ import SearchBar from './SearchBar';
 
 class App extends React.Component{
 
+    state = {images:[]};
 
     async onSearchSubmit(term)
     {    
@@ -16,7 +17,8 @@ class App extends React.Component{
         }
         });
 
-        console.log(response.data.results);
+        // console.log(response.data.results);
+        this.setState({images:response.data.results});
     }
 
 render(){
@@ -25,6 +27,7 @@ render(){
             <SearchBar
                 onSubmit={this.onSearchSubmit}
             />
+        Found {this.state.images.length} images.
         </div>
     );
 }
