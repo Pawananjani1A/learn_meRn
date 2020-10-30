@@ -4,8 +4,7 @@ class SearchBar extends React.Component{
 
     state = {term:''};
 
-    onFormSubmit(event)
-    {
+    onFormSubmit = (event)=>{
         event.preventDefault();
 
         console.log(this.state.term);
@@ -22,7 +21,7 @@ class SearchBar extends React.Component{
                      type="text" 
                      name="search-bar"
                     value={this.state.term}
-                   onChange={(e)=>this.setState({term:e.target.value.toUpperCase()})}
+                   onChange={(e)=>this.setState({term:e.target.value})}
                      />
                 </div>
                 </form>
