@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import YouTube from '../apis/YouTube';
-
+import VideoList from './VideoList';
 
 
 
@@ -32,6 +32,9 @@ class App extends React.Component{
                onFormSubmit = {this.onTermSubmit}
               /> 
               I have {this.state.videos.length } videos.
+              <VideoList
+                  videos={this.state.videos}
+              />
             </div>
         );
     }
