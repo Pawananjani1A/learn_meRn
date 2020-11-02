@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import YouTube from '../apis/YouTube';
 import VideoList from './VideoList';
-
+import VideoDetail from './VideoDetail';
 
 
 class App extends React.Component{
@@ -25,8 +25,9 @@ class App extends React.Component{
    }
 
    onVideoSelect = (video)=>{
-       console.log('From the app!',video);
-   }
+    //    console.log('From the app!',video);
+    this.setState({selectedVideo:video});
+   };
 
 
     render(){
@@ -36,6 +37,9 @@ class App extends React.Component{
                onFormSubmit = {this.onTermSubmit}
               /> 
               I have {this.state.videos.length } videos.
+              <VideoDetail
+                  video={this.state.selectedVideo}
+              />
               <VideoList
                   videos={this.state.videos}
                   onVideoSelect={this.onVideoSelect}
