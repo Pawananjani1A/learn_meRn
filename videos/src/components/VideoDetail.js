@@ -15,7 +15,12 @@ const VideoDetail = (props)=>{
     }
 
     return (
-        <div>{video.snippet.title}</div>
+        <div>
+            <div className="ui segment">
+                <h4 className="ui header">{video.snippet.title}</h4>
+                <p className="ui description">{video.snippet.description}</p>
+            </div>
+        </div>
     );
 }
 
