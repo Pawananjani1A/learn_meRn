@@ -8,7 +8,9 @@ const VideoList = (props)=>{
     const {videos} = props;
 
     const renderedList = videos.map((video)=>{
-        return (<VideoItem/>);
+        return (<VideoItem
+            video={video}
+        />);
     });
 
     return (
