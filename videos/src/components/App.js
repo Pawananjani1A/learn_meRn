@@ -7,7 +7,7 @@ import VideoList from './VideoList';
 
 class App extends React.Component{
 
-   state =  {videos:[]};
+   state =  {videos:[], selectedVideo:null};
 
    onTermSubmit = async (term)=>{
     //    console.log(term);
@@ -24,6 +24,10 @@ class App extends React.Component{
 
    }
 
+   onVideoSelect = (video)=>{
+       console.log('From the app!',video);
+   }
+
 
     render(){
         return (
@@ -34,6 +38,7 @@ class App extends React.Component{
               I have {this.state.videos.length } videos.
               <VideoList
                   videos={this.state.videos}
+                  onVideoSelect={this.onVideoSelect}
               />
             </div>
         );
