@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-
+import axios from 'axios';
 
 
 
@@ -7,11 +7,16 @@ const Search = ()=>{
     
     const [term,setTerm] = useState('');
 
-    console.log('I run with every render');
+ 
 
    useEffect(() => {
-       console.log('I run after every render and at initial render');
-   },[term]);
+      
+    const search = async()=>{
+        await axios.get(`https://www.mediawiki.org/w/api.php?action=query&list=search&format=json&srsearch=${term}`)
+    };
+
+    search();
+   });
 
     return (
         <div>
