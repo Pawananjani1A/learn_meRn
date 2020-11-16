@@ -13,25 +13,34 @@ const Search = ()=>{
 
    useEffect(() => {
       
-    const search = async()=>{
-        const {data} = await axios.get('https://en.wikipedia.org/w/api.php',{
-            params:{
-                action:'query',
-                list:'search',
-                origin:'*',
-                format:'json',
-                srsearch:term
+//     const search = async()=>{
+//         const {data} = await axios.get('https://en.wikipedia.org/w/api.php',{
+//             params:{
+//                 action:'query',
+//                 list:'search',
+//                 origin:'*',
+//                 format:'json',
+//                 srsearch:term
 
-            }
-        });
+//             }
+//         });
 
-        setResults(data.query.search);
-    };
+//         setResults(data.query.search);
+//     };
 
-    if(term) search();
-   },[term]);
+//     setTimeout(() => {
+//         if (term) search();
+//     }, 500);
 
+   console.log('Initial render or term was changed.');
 
+   return ()=>{
+       console.log('CLEANUP');
+   };
+
+ },[term]);
+
+    
    const renderedResults = results.map((result)=>{
 
     return (
