@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import Accordion from './Accordion';
 import Dropdown from './Dropdown';
 import Search from './Search';
+import Translate from './Translate';
 
 
 const items = [
@@ -37,23 +38,12 @@ const options = [
 const App =  ()=>{
      
     const [selected,setSelected] = useState(options[0]);
-    const [showDropdown,setShowDropdown] = useState(true);
+    
     return(
         <div className="ui container">
         
-         <button
-         onClick={()=>setShowDropdown(!showDropdown)}
-         >
-         Toggle Dropdown Visibility
-         </button>
+        <Translate/>
           
-          {  showDropdown?
-                <Dropdown
-                    options={options}
-                    selected={selected}
-                    onSelectedChange={setSelected}
-                /> : null
-          }
             
 
         </div>
