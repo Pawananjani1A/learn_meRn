@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Dropdown from './Dropdown';
+import Convert from './Convert';
+
+//Google Translate API Key : AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM
 
 const options = [
     {
@@ -46,6 +49,13 @@ const Translate = ()=>{
                options={options}
                selected={language}
                onSelectedChange={setLanguage}
+           />
+
+           <hr/>
+           <h3 className="ui header">Output</h3>
+           <Convert
+               language={language}
+               text={text}
            />
         </div>
     );
