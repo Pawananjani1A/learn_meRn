@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 
 
 
@@ -6,6 +6,15 @@ const Dropdown = (props)=>{
     
     const [open,setOpen] = useState(false);
     const {options,selected,onSelectedChange} = props;
+  
+
+    //This useEffect is created to function only when the component is rendered the first time,
+    //that's why we've used empty array in it's second argument.
+    useEffect(()=>{
+          document.body.addEventListener('click',()=>{
+              setOpen(false);
+          },{capture:true});
+    },[]);
      
     const renderedOptions = options.map((option)=>{
 
