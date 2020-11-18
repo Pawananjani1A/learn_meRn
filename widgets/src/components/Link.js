@@ -7,6 +7,10 @@ const Link = (props)=>{
     const {className,href,children} = props;
 
     const onClick = (event)=>{
+       
+        //This line allows opening the link in a new tab on pressing ctrlKey(Windows) or metaKey(macOS)
+        if(event.metaKey || event.ctrlKey) return;
+
         //This line prevents full-page reload on changing the URL
          event.preventDefault();
          //This line changes the URL without full-page reload
