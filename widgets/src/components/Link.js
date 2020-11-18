@@ -8,7 +8,9 @@ const Link = (props)=>{
 
     const onClick = (event)=>{
          event.preventDefault();
+         window.history.pushState({},'',href);
     };
+    
 
     return (
         <a 
