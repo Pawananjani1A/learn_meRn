@@ -1,40 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import SearchBar from './SearchBar';
-import YouTube from '../apis/YouTube';
 import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
+import useVideos from '../hooks/useVideos';
 
 const App = ()=>{
    
-    const [videos,setVideos] = useState([]);
+  
     const [selectedVideo,setSelectedVideo] = useState(null);
+    const[videos,search] = useVideos('DP algorithms');
 
-     useEffect(()=>{
-         onTermSubmit('DP algorithms');
-     },[]);
-
-
-    const onTermSubmit = async (term) => {
-        //    console.log(term);
-
-        const response = await YouTube.get("/search", {
-            params: {
-                q: term
-            }
-        });
-
-        //    console.log(response);
-         setVideos(response.data.items);
-        setSelectedVideo(response.data.items[0]);
+    useEffect(()=>{
+        setSelectedVideo(videos[0]);
+    },[videos]);
+     
         
-    };
-
+        
    
-
     return (
         <div className="ui container">
             <SearchBar
-                onFormSubmit={onTermSubmit}
+                onFormSubmit={search}
             />
               Found {videos.length} videos.
             <div className="ui grid">
