@@ -1,5 +1,5 @@
 import React from 'react';
-
+import SongList from './SongList';
 
 
 
@@ -7,7 +7,9 @@ import React from 'react';
 const App = ()=>{
 
     return (
-        <div>App</div>
+        <div>
+            <SongList />
+        </div>
     );
 }
 
