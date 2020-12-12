@@ -10,9 +10,16 @@ Rules of Reducers
 4.Must not mutate its input 'state' argument.
 */ 
 
-
-const postsReducer =  ()=>{
-    return "123";
-}
+ const postsReducer =  (state=[],action)=>{
+    
+    //Extremely Common syntax inside reducers.
+    switch (action.type)
+    {
+        case 'FETCH_POSTS':
+             return action.payload;
+        default: return state;
+        
+    }
+};
 
 export default postsReducer;
