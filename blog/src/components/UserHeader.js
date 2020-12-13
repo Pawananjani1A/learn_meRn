@@ -13,7 +13,7 @@ componentDidMount()
 
 
     render (){
-        const user = this.props.users.find((user)=>user.id === this.props.userId);
+        const {user} = this.props;
    
         if(!user) return null;
 
@@ -25,9 +25,9 @@ componentDidMount()
     }
 }
 
-const mapStateToProps = (state)=>{
+const mapStateToProps = (state,ownProps)=>{
 
-    return { users: state.users};
+    return { user: state.users.find(user=>user.id===ownProps.userId)};
 }
 
 
