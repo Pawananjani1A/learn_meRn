@@ -12,3 +12,13 @@ export const fetchPosts =  ()=>  async (dispatch,getState)=>{
         });
 
     };
+
+export const fetchUser = (id)=>async(dispatch,getState)=>{
+
+    const response = await JsonPlaceholder.get(`users/${id}`);
+
+    dispatch ({
+        type:'FETCH_USER',
+        payload: response.data
+    });
+}
