@@ -7,10 +7,13 @@ export const fetchPostsAndUsers = () => async(dispatch,getState)=>{
     // console.log("About to fetch posts!");
    await dispatch(fetchPosts());
 //    console.log(getState().posts);
- const userIds =  _.uniq(_.map(getState().posts,'userId'));
-//  console.log(userIds);
+ 
 
-   userIds.forEach((id)=>dispatch(fetchUser(id)));
+// const userIds = _.uniq(_.map(getState().posts, 'userId'));
+//  userIds.forEach((id)=>dispatch(fetchUser(id)));
+
+//The above two lines of code can be implemented using lodash chaining in only one line
+    _.chain(getState().posts).map('userId').uniq().forEach((id) => dispatch(fetchUser(id))).value();
 };
 
 // A function returning another function
