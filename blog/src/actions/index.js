@@ -15,19 +15,38 @@ export const fetchPosts =  ()=>  async (dispatch,getState)=>{
     };
 
 
-export const fetchUser = (id) =>(dispatch,getState)=>{
-  
-_fetchUser(id,dispatch);
+
+//Unmemoized Version
+export const fetchUser = (id) => async(dispatch, getState) => {
+
+    const response = await JsonPlaceholder.get(`users/${id}`);
+
+    dispatch({
+        type: 'FETCH_USER',
+        payload: response.data
+    });
 
 };
 
-const _fetchUser = _.memoize(async (id,dispatch)=>{
-    const response = await JsonPlaceholder.get(`users/${id}`);
-
-    dispatch ({
-        type:'FETCH_USER',
-        payload: response.data
-    });
-});
 
 
+
+
+    /*Memoized Version of fetchUser to make only one request for one user
+
+// export const fetchUser = (id) =>(dispatch,getState)=>{
+  
+// _fetchUser(id,dispatch);
+
+// };
+
+// const _fetchUser = _.memoize(async (id,dispatch)=>{
+//     const response = await JsonPlaceholder.get(`users/${id}`);
+
+//     dispatch ({
+//         type:'FETCH_USER',
+//         payload: response.data
+//     });
+// });
+
+*/
