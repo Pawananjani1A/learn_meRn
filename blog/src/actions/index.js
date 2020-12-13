@@ -14,25 +14,20 @@ export const fetchPosts =  ()=>  async (dispatch,getState)=>{
 
     };
 
-// export const fetchUser = (id)=>async(dispatch,getState)=>{
 
-//     const response = await JsonPlaceholder.get(`users/${id}`);
+export const fetchUser = (id) =>(dispatch,getState)=>{
+  
+_fetchUser(id,dispatch);
 
-//     dispatch ({
-//         type:'FETCH_USER',
-//         payload: response.data
-//     });
-// }
+};
 
-export const fetchUser = function(id) {
-
-return _.memoize (async function(dispatch, getState){
-
+const _fetchUser = _.memoize(async (id,dispatch)=>{
     const response = await JsonPlaceholder.get(`users/${id}`);
 
-    dispatch({
-        type: 'FETCH_USER',
+    dispatch ({
+        type:'FETCH_USER',
         payload: response.data
     });
 });
-}
+
+
