@@ -1,16 +1,30 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 
-export default class App extends React.Component {
+const PageOne = ()=>{
+  return (
+      <div>PageOne</div>
+  );
+};
 
+const PageTwo = () => {
+    return (
+        <div>PageTwo</div>
+    );
+};
 
-
-    render()
-    {
-        return (
+const App = () => {
+    return (
+        <div>
+        <BrowserRouter>
             <div>
-                App
+                    <Route path="/" exact component={PageOne} />
+                    <Route path="/pageTwo" component={PageTwo} />
             </div>
-        );
-    }
+        </BrowserRouter>
+        </div>
+    );
 }
+
+export  default App;
