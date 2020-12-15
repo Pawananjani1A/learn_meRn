@@ -7,34 +7,19 @@ import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import StreamShow from './streams/StreamShow';
 
-const PageOne = ()=>{
-  return (
-      <div>
-      PageOne
-      <Link to="/pageTwo">Navigate to Page Two</Link>
-      </div>
-  );
-};
 
-const PageTwo = () => {
-    return (
-        <div>
-            PageTwo
-            <Link to="/">Navigate to Page One</Link>
-        </div>
-    );
-};
 
 const App = () => {
     return (
         <div>
+        <h1>Header!</h1>
         <BrowserRouter>
             <div>
                     <Route path="/" exact component={StreamList} />
-                    <Route path="/new" component={StreamCreate} />
-                    <Route path="/edit" component={StreamEdit} />
-                    <Route path="/delete" component={StreamDelete} />
-                    <Route path="/show" component={StreamShow} />
+                    <Route path="/streams/new" component={StreamCreate} />
+                    <Route path="/streams/edit" component={StreamEdit} />
+                    <Route path="/streams/delete" component={StreamDelete} />
+                    <Route path="/streams/show" component={StreamShow} />
             </div>
         </BrowserRouter>
         </div>
