@@ -1,6 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Link, Route,MemoryRouter } from 'react-router-dom';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
 
+import StreamList from './streams/StreamList';
+import StreamCreate from './streams/StreamCreate';
+import StreamEdit from './streams/StreamEdit';
+import StreamDelete from './streams/StreamDelete';
+import StreamShow from './streams/StreamShow';
 
 const PageOne = ()=>{
   return (
@@ -23,12 +28,15 @@ const PageTwo = () => {
 const App = () => {
     return (
         <div>
-        <MemoryRouter>
+        <BrowserRouter>
             <div>
-                    <Route path="/" exact component={PageOne} />
-                    <Route path="/pageTwo" component={PageTwo} />
+                    <Route path="/" exact component={StreamList} />
+                    <Route path="/new" component={StreamCreate} />
+                    <Route path="/edit" component={StreamEdit} />
+                    <Route path="/delete" component={StreamDelete} />
+                    <Route path="/show" component={StreamShow} />
             </div>
-        </MemoryRouter>
+        </BrowserRouter>
         </div>
     );
 }
