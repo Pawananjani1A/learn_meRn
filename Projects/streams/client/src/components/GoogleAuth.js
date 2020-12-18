@@ -7,9 +7,9 @@ class GoogleAuth extends React.Component{
   
   state = {isSignedIn:null};
 
+//Rendering the auth state
  componentDidMount()
  {  
-
     //Load the gapi library and on the callback, initialize yourself as client with your clientId
      window.gapi.load('client:auth2',()=>{
        window.gapi.client.init({
@@ -17,12 +17,16 @@ class GoogleAuth extends React.Component{
            scope:'email'
        }).then(()=>{
            this.auth = window.gapi.auth2.getAuthInstance();
-           this.setState({isSignedIn:this.auth.isSignedIn.get()});
-
+           this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+           this.auth.isSignedIn.listen(this.onAuthChange);
        });
 
      });
+ }
 
+ //Updating the auth state
+ onAuthChange = ()=>{
+    this.setState({isSignedIn:this.auth.isSignedIn.get()});
  }
 
  renderAuthButton()
