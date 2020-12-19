@@ -20,17 +20,19 @@ class GoogleAuth extends React.Component{
            scope:'email'
        }).then(()=>{
            this.auth = window.gapi.auth2.getAuthInstance();
-           this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+           //Passing the authentication status from browser window to our redux store
+           this.onAuthChange(this.auth.isSignedIn.get);
            this.auth.isSignedIn.listen(this.onAuthChange);
        });
 
      });
  }
 
- //Updating the auth state
+ //Updating the auth state in the redux store 
     onAuthChange = (isSignedIn)=>{
+    
     if(isSignedIn) 
-    {
+    {  
         this.props.signIn();
     }
     else 
@@ -49,11 +51,11 @@ class GoogleAuth extends React.Component{
 
  renderAuthButton()
  {
-     if(this.state.isSignedIn===null)
+     if(this.props.isSignedIn===null)
      {
          return null;
      }
-     else if(this.state.isSignedIn)
+     else if(this.props.isSignedIn)
      {
          return (
              <button className="ui red google button" onClick={this.onSignOutClick}>
@@ -82,6 +84,12 @@ class GoogleAuth extends React.Component{
     }
 }
 
+//Map the state passed from our redux store to the props of this component
+const mapStateToProps = (state)=>{
 
 
-export default connect(null,{signIn,signOut})(GoogleAuth);
+    return {isSignedIn:state.authReducer.isSignedIn};
+};
+
+//Connecting the mapStateToProps with the action creators and this component(GoogleAuth)
+export default connect(mapStateToProps,{signIn,signOut})(GoogleAuth);
