@@ -5,7 +5,7 @@ import {signIn,signOut} from '../actions';
 
 
 const CLIENT_ID = '727452677641-lt7rh4s85i0u2sp2m8h6e9u1f9pp411k.apps.googleusercontent.com' ;
-const CLIENT_SERET ='TeFAH7pSNudhL0vmQZmBt4wR';
+// const CLIENT_SERET ='TeFAH7pSNudhL0vmQZmBt4wR';
 class GoogleAuth extends React.Component{
   
   state = {isSignedIn:null};
