@@ -8,7 +8,7 @@ const CLIENT_ID = '727452677641-lt7rh4s85i0u2sp2m8h6e9u1f9pp411k.apps.googleuser
 // const CLIENT_SERET ='TeFAH7pSNudhL0vmQZmBt4wR';
 class GoogleAuth extends React.Component{
   
-  state = {isSignedIn:null};
+  
 
 //Rendering the auth state
  componentDidMount()
@@ -21,7 +21,7 @@ class GoogleAuth extends React.Component{
        }).then(()=>{
            this.auth = window.gapi.auth2.getAuthInstance();
            //Passing the authentication status from browser window to our redux store
-           this.onAuthChange(this.auth.isSignedIn.get);
+           this.onAuthChange(this.auth.isSignedIn.get());
            this.auth.isSignedIn.listen(this.onAuthChange);
        });
 
@@ -30,10 +30,10 @@ class GoogleAuth extends React.Component{
 
  //Updating the auth state in the redux store 
     onAuthChange = (isSignedIn)=>{
-    
+    // console.log(this.props);
     if(isSignedIn) 
     {  
-        this.props.signIn();
+        this.props.signIn(this.auth.currentUser.get().getId());
     }
     else 
     {
