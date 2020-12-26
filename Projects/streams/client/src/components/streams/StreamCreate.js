@@ -35,9 +35,9 @@ renderError(meta)
     }
 }
 
-onSubmit(formValues)
-{
+ onSubmit = (formValues)=>{
     // console.log(formValues);
+    this.props.createStream(formValues);
 }
 
 
@@ -75,7 +75,10 @@ const validate = (formValues)=>{
     return errors;
 };
 
-export default reduxForm({
+const formWrapped =  reduxForm({
     form:'streamCreate',
     validate:validate
 }) (StreamCreate);
+
+
+export default connect(null,{createStream}) (formWrapped);
