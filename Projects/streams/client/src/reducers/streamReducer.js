@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import {
     FETCH_STREAM,
     FETCH_STREAMS,
@@ -5,6 +7,8 @@ import {
     EDIT_STREAM,
     DELETE_STREAM
 } from '../actions/types';
+
+
 
 const streamReducer = (state={},action)=>{
   
@@ -16,8 +20,8 @@ const streamReducer = (state={},action)=>{
             return {...state,[action.payload.id]:action.payload};
         case EDIT_STREAM:
             return {...state,[action.payload.id]:action.payload};
-
-
+        case DELETE_STREAM:
+            return _.omit(state,action.payload);
         default:return state;
     }
 };
