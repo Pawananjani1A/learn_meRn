@@ -1,5 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+
+
 import {fetchStreams} from '../../actions';
 
 class StreamList extends React.Component{
@@ -14,6 +17,7 @@ class StreamList extends React.Component{
         return this.props.streams.map(stream=>{
            return (
                <div className="item" key={stream.id}>
+                   {this.renderAdmin(stream)}
                   <i className="large middle aligned icon camera"/>
                   <div className="content">
                        {stream.title}
@@ -21,7 +25,6 @@ class StreamList extends React.Component{
                          {stream.description}
                        </div>
                   </div>
-                  {this.renderAdmin(stream)}
                </div>
            );
         });
@@ -33,18 +36,26 @@ class StreamList extends React.Component{
         {
               return (
                   <div className="right floated content">
-                      <button className="large ui inverted primary button">
+                      <button className="ui inverted primary button">
                           Edit
                       </button>
-                      <button className="large ui inverted red button">
+                      <button className="ui inverted red button">
                           Delete
                       </button>
                   </div>
               );
         }
-        else
-        {
+    }
 
+    renderCreate()
+    {
+        if(this.props.isSignedIn)
+        {
+            return (<div style={{textAlign:'right'}}>
+                <Link to="/streams/new" className="large ui inverted green button">
+                   Create
+               </Link>
+            </div>);
         }
     }
 
@@ -53,9 +64,8 @@ class StreamList extends React.Component{
         return (
             <div className="ui container">
             <h2>Streams</h2>
-            <div className="ui celled list">
-                 {this.renderList()}
-            </div>
+            <div className="ui celled list">{this.renderList()}</div>
+            <div>{this.renderCreate()}</div>
             </div>
         );
     };
@@ -65,7 +75,8 @@ const mapStateToProps = (state)=>{
    
     return {
         streams:Object.values(state.streams),
-        currentUserId:state.authReducer.userId
+        currentUserId:state.authReducer.userId,
+        isSignedIn:state.authReducer.isSignedIn
     };
 };
 
