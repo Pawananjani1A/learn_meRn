@@ -6,11 +6,6 @@
       "id": 1
     },
     {
-      "title": "StreamB",
-      "description": "This is a new stream.",
-      "id": 2
-    },
-    {
       "title": "StreamC",
       "description": "This stream has my userId as well.",
       "userId": "116763902661403858917",
@@ -21,6 +16,12 @@
       "description": "We got no notification on stream creation so we're going to add something to notify us that our stream has been created.",
       "userId": "116763902661403858917",
       "id": 4
+    },
+    {
+      "title": "StreamE",
+      "description": "Programmatic Navigation will now navigate us to the root-route after succesfull form-submission.",
+      "userId": "116763902661403858917",
+      "id": 5
     }
   ]
 }

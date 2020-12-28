@@ -1,4 +1,5 @@
 import { formValues } from 'redux-form';
+import history from '../history';
 import {
     SIGN_IN,
     SIGN_OUT,
@@ -43,6 +44,7 @@ export const createStream = (formValues)=>{
         });
 
         //Do some programmatic navigation to navigate the user back to the root route
+        history.push('/');
     });
 };
 
