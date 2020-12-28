@@ -15,6 +15,12 @@
       "description": "This stream has my userId as well.",
       "userId": "116763902661403858917",
       "id": 3
+    },
+    {
+      "title": "StreamD",
+      "description": "We got no notification on stream creation so we're going to add something to notify us that our stream has been created.",
+      "userId": "116763902661403858917",
+      "id": 4
     }
   ]
 }
