@@ -7,7 +7,7 @@
     },
     {
       "title": "StreamC",
-      "description": "This stream has my userId as well.",
+      "description": "This change was made by PATCH request instead of a PUT request.",
       "userId": "116763902661403858917",
       "id": 3
     },
@@ -33,6 +33,12 @@
       "title": "Stream_To_Be_Edited",
       "description": "I 've edited the description of this stream now.",
       "id": 7
+    },
+    {
+      "title": "Stream_To_Resolve Error",
+      "description": "Try#5_I think I've finally resolved the issue with await before the PATCH request.",
+      "userId": "116763902661403858917",
+      "id": 8
     }
   ]
 }

@@ -15,6 +15,7 @@ componentDidMount()
 
   onSubmit = (formValues)=>{
     //   console.log(formValues);
+      console.log(this.props.match.params.id);
     this.props.editStream(this.props.match.params.id,formValues);
   }
 
