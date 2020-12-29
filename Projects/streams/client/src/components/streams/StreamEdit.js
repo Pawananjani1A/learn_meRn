@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
+import _ from 'lodash';
 
 import {fetchStream,editStream} from '../../actions';
 import StreamForm from './StreamForm';
@@ -22,9 +22,9 @@ componentDidMount()
         if(!this.props.stream)
         {
             return (
-                <div class="ui segment">
-                    <div class="ui active inverted dimmer">
-                        <div class="ui text loader">Loading</div>
+                <div className="ui segment">
+                    <div className="ui active inverted dimmer">
+                        <div className="ui text loader">Fetching the Form</div>
                     </div>
                     <p></p>
                 </div>
@@ -35,7 +35,7 @@ componentDidMount()
                 <div>
                     <h3>Edit a Stream</h3>
                     <StreamForm 
-                    initialValues={{ title: `${this.props.stream.title}`, description: `${this.props.stream.description}`}}
+                    initialValues={_.pick(this.props.stream,'title','description')}
                     onSubmit={this.onSubmit}
                     />
                 </div>
