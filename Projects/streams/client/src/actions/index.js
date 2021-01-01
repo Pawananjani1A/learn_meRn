@@ -1,4 +1,3 @@
-import { formValues } from 'redux-form';
 import history from '../history';
 import {
     SIGN_IN,
@@ -89,4 +88,6 @@ export const deleteStream = (id)=>async dispatch =>{
         type:DELETE_STREAM,
         payload:id
     });
+
+    history.push('/');
 };

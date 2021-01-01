@@ -6,12 +6,6 @@
       "id": 1
     },
     {
-      "title": "StreamC",
-      "description": "This change was made by PATCH request instead of a PUT request.",
-      "userId": "116763902661403858917",
-      "id": 3
-    },
-    {
       "title": "StreamD",
       "description": "We got no notification on stream creation so we're going to add something to notify us that our stream has been created.",
       "userId": "116763902661403858917",
@@ -33,12 +27,6 @@
       "title": "Stream_To_Be_Edited",
       "description": "I 've edited the description of this stream now.",
       "id": 7
-    },
-    {
-      "title": "Stream_To_Resolve Error",
-      "description": "Try#5_I think I've finally resolved the issue with await before the PATCH request.",
-      "userId": "116763902661403858917",
-      "id": 8
     }
   ]
 }
