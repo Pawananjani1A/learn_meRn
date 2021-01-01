@@ -3,11 +3,22 @@ import Modal from '../Modal';
 
 
 const StreamDelete = () => {
+    
+    const actions =  (
+        <div>
+            <button className="ui button negative">DELETE</button>
+            <button className="ui button">CANCEL</button>
+        </div>
+    );
 
     return (
         <div>
         StreamDelete
-        <Modal/>
+        <Modal
+            title="Delete Stream"
+            content="Are you sure you want to delete this stream?"
+            actions={actions}
+        />
         </div>
     );
 };
