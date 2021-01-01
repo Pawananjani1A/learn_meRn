@@ -1,31 +1,47 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Modal from '../Modal';
 import history from '../../history';
+import {fetchStream} from '../../actions';
 
-
-const StreamDelete = () => {
+class StreamDelete extends React.Component {
     
-    const actions =  (
-        <React.Fragment>
-            <button className="ui button negative">DELETE</button>
-            <button className="ui button">CANCEL</button>
-        </React.Fragment>
-    );
 
-    return (
-        <div>
-        StreamDelete
-        <Modal
-            title="Delete Stream"
-            content="Are you sure you want to delete this stream?"
-            actions={actions}
-            onDismiss={()=>history.push('/')}
-        />
-        </div>
-    );
-};
+    componentDidMount()
+    {
+        // console.log(this.props);
+        this.props.fetchStream(this.props.match.params.id);
+    }
 
 
+    renderActions()
+    {
+        return (
+            <React.Fragment>
+                <button className="ui button negative">DELETE</button>
+                <button className="ui button">CANCEL</button>
+            </React.Fragment>
+        );
 
-export default StreamDelete;
+    }
+
+    render()
+    {
+        return (
+            <div>
+                StreamDelete
+                <Modal
+                    title="Delete Stream"
+                    content="Are you sure you want to delete this stream?"
+                    actions={this.renderActions()}
+                    onDismiss={() => history.push('/')}
+                />
+            </div>
+        );
+    }
+}
+
+
+
+export default connect(null,{fetchStream}) (StreamDelete);
