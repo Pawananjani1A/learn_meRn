@@ -1,16 +1,23 @@
 import React from 'react';
 
-//ReactDOM is purposedly imported here
+//ReactDOM is purposedly imported here to create a React-Portal
 import ReactDOM from 'react-dom';
-
+import history from '../history';
 
 
 const Modal = (props)=>{
 
     return ReactDOM.createPortal(
-        <div className="ui dimmer modals visible active">
-            <div className="ui standard modal visible active">
-                Modal in a Portal
+        <div className="ui dimmer modals visible active" onClick={()=>history.push('/')}>
+            <div className="ui standard modal visible active" onClick={(e)=>e.stopPropagation()}>
+                <div className="header">Delete Stream</div>
+                <div className="content">
+                <p>Are you sure you want to delete this stream?</p>
+                </div>
+                <div className="actions">
+                    <div class="ui approve red button">DELETE</div>
+                    <div class="ui cancel primary button">CANCEL</div>
+                </div>
             </div>
         </div>,
         document.querySelector('#modal')
