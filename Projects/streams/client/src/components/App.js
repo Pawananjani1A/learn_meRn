@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router,Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 
 import StreamList from './streams/StreamList';
 import StreamCreate from './streams/StreamCreate';
@@ -11,20 +11,20 @@ import history from '../history';
 
 
 const App = () => {
-    return (
-        <div className="ui container">
-        <Router history={history}>
-            <div>   
-                    <Header />
-                    <Route path="/" exact component={StreamList} />
-                    <Route path="/streams/new" component={StreamCreate} />
-                    <Route path="/streams/edit/:id" component={StreamEdit} />
-                    <Route path="/streams/delete/:id" component={StreamDelete} />
-                    <Route path="/streams/show" component={StreamShow} />
-            </div>
-        </Router>
+    return ( 
+        <div className = "ui container" >
+        <Router history = { history } >
+        <div >
+        <Header / >
+        <Route path = "/" exact component = { StreamList }/> 
+        <Route path = "/streams/new " component = { StreamCreate }/>
+        <Route path = "/streams/edit/:id" component = { StreamEdit }/> 
+        <Route path = "/streams/delete/:id" component = { StreamDelete }/> 
+        <Route path = "/streams/show/:id " component = { StreamShow }/>
+        </div>
+        </Router> 
         </div>
     );
 }
 
-export  default App;
+export default App;
