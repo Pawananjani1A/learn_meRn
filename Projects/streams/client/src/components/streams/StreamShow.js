@@ -49,6 +49,14 @@ componentDidUpdate()
     this.buildPlayer();
 }
 
+//To clean up some resources that were used by a particular instance of our app
+componentWillUnmount()
+{
+    console.log("I was unmounted");
+    //Stop attempting to stream video once the user leaves the component.
+    this.player.destroy();
+}
+
     render() {
         // console.log(this.props.stream);
         if (!this.props.stream) {
