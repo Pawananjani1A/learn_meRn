@@ -35,7 +35,7 @@ buildPlayer()
 
     this.player =   flv.createPlayer({
             type:'flv',
-            url:`http://localhost:8000/live/${id}`
+            url:`http://localhost:8000/live/${id}.flv`
         });
       console.log(this.videoRef);
     this.player.attachMediaElement(this.videoRef.current);
