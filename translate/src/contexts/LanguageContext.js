@@ -9,7 +9,7 @@ export class LanguageStore extends React.Component{
  state = {language:'english'};
 
 
- onLanguageChange = (language)=>{
+  onLanguageChange = (language)=>{
      this.setState({language:language});
  }
 

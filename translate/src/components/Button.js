@@ -8,7 +8,8 @@ class Button extends React.Component{
 
 
 renderSubmit = (value)=>{
-  return value==='english'?'Submit':'Confirm Karein';
+    // console.log(value);
+  return value.language==='english'?'Submit':'Confirm Karein';
 }
 
 renderButton(color){
