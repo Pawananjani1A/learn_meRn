@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Dropdown from './Dropdown';
 import Convert from './Convert';
 
-//Google Translate API Key : AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM
+//Google Translate API Key : "Your Google Traslate API Key"
 //ONLY valid for requests made from localhost:3000
 
 const options = [
